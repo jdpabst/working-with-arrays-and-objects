@@ -50,9 +50,16 @@ var employees = [
     3. Return the updated employee array.
 */
 
-//Code Here
-
-
+function employeeUpdater(){
+  employees.filter((obj, index) => {
+    if(obj.firstName === "Theo"){;
+      employees.splice(index,1)
+    } else if(obj.firstName === "Lorie"){
+      obj.department = "HR";
+    }
+  })
+  return employees;
+}
 
 ////////// PROBLEM 2 //////////
 
@@ -68,7 +75,22 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
     3. Return the updated array.
 */
 
-//Code Here
+function removeDuplicates(arr){
+  for(var i = 0; i < arr.length; i++){
+    for(var j = i + 1; j < arr.length; j++){
+      if(arr[i] === arr[j]){
+        arr.splice(i, 1);
+        i--;
+        // NEED TO INCLUDE THE i-- SO THAT THE FACT THAT SPLICE SHIFTS THE ELEMENTS IN AN ARRAY DOESN'T MESS UP OUR LOOPS AND WHAT WE ARE LOOKING FOR. If you want to remove multiple items that match your criteria there is a glitch.
+
+///// (COPIED FROM WEBSITE I FOUND.) As the items are removed from the array the index still increments and the next item after your matched value is skipped.
+// The simple solution is to modify the if statement to decrement the index variable so it does not skip the next item in the array. /////
+    
+      }
+    }
+  }
+  return arr;
+}
 
 
 
@@ -97,9 +119,8 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
-
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name
 
 
 ////////// PROBLEM 4 //////////
@@ -138,7 +159,15 @@ var myCar = {
     3. Change atFaultForAccident from true to false.
 */
 
-//Code Here
+function recordCleaner(){
+  let accidents = myCar.accidents;
+  for(var i = 0; i < accidents.length; i++){
+    if(accidents[i].atFaultForAccident){
+      accidents[i].atFaultForAccident = false;
+    }
+  }
+  return myCar;
+}
 
 
 
@@ -157,6 +186,17 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
     4. Return the modified numsArr.
 */
 
-//Code Here
+function looper(){
+  for(var i = 0; i < numsArr.length; i++){
+    for(var j = 0; j < numsArr[i].length; j++){
+      if(numsArr[i][j] % 2 === 0){
+        numsArr[i][j] = 'even'
+      } else if(numsArr[i][j] % 2 !== 0){
+        numsArr[i][j] = 'odd'
+      }
+    }
+  }
+    return numsArr
+}
 
 
